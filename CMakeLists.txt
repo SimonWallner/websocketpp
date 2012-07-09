@@ -4,7 +4,7 @@ project(websocketpp CXX)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-option(WEBSOCKETPP_BUILD_EXAMPLES "Build the websocketpp example programs" ON)
+option(WEBSOCKETPP_BUILD_EXAMPLES "Build the websocketpp example programs" OFF)
 
 find_package(Boost REQUIRED COMPONENTS System Date_Time Regex Thread)
 find_package(OpenSSL REQUIRED)
