@@ -296,7 +296,8 @@ void server<endpoint>::listen(const std::string &host, const std::string &servic
     if (endpoint_iterator == end) {
         throw std::invalid_argument("Can't resolve host/service to listen");
     }
-    listen(*endpoint_iterator,n);
+    const boost::asio::ip::tcp::endpoint &ep = *endpoint_iterator;
+    listen(ep,n);
 }
 
 template <class endpoint>
@@ -341,8 +342,8 @@ void server<endpoint>::handle_accept(connection_ptr con,
             con->m_fail_reason = "too many files open";
             
             // TODO: make this configurable
-            m_timer.expires_from_now(boost::posix_time::milliseconds(1000));
-            m_timer.async_wait(boost::bind(&type::start_accept,this));
+            //m_timer.expires_from_now(boost::posix_time::milliseconds(1000));
+            //m_timer.async_wait(boost::bind(&type::start_accept,this));
         } else if (error == boost::asio::error::operation_aborted) {
             con->m_fail_reason = "io_service operation canceled";
             
