@@ -6,12 +6,15 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 option(WEBSOCKETPP_BUILD_EXAMPLES "Build the websocketpp example programs" OFF)
 
-find_package(Boost REQUIRED COMPONENTS System Date_Time Regex Thread)
-find_package(OpenSSL REQUIRED)
+if (WIN32)
+	set(BOOST_ROOT "C:\\Boost")
+endif()
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost 1.50.0 REQUIRED COMPONENTS System Date_Time Regex Thread)
 
 
 add_subdirectory(src)
 
 if (WEBSOCKETPP_BUILD_EXAMPLES)
     add_subdirectory(examples)
-endif(WEBSOCKETPP_BUILD_EXAMPLES)
+endif()
