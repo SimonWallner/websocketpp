@@ -1,8 +1,9 @@
 include_directories(${PROJECT_SOURCE_DIR}/src
-					${Boost_INCLUDE_DIR})
+					${Boost_INCLUDE_DIR}
+					)
 					
 link_directories(
-	${Boost_LIBRARY_DIRS}
+	${Boost_LIBRARY_DIR}
 )
 
 # for some reason the compiler skips the file if in c mode...???
@@ -19,9 +20,10 @@ add_library(websocketpp STATIC
 	uri.cpp)
 
 target_link_libraries(websocketpp
-	${Boost_SYSTEM_LIBRARY}
-	${Boost_DATE_TIME_LIBRARY}
-	${Boost_REGEX_LIBRARY}
-	${Boost_THREAD_LIBRARY}
-	${OPENSSL_SSL_LIBRARY}
-	${OPENSSL_CRYPTO_LIBRARY})
+#	${Boost_SYSTEM_LIBRARY}
+#	${Boost_DATE_TIME_LIBRARY}
+#	${Boost_REGEX_LIBRARY}
+#	${Boost_THREAD_LIBRARY}
+#	${OPENSSL_SSL_LIBRARY}
+#	${OPENSSL_CRYPTO_LIBRARY}
+)
